@@ -10,3 +10,5 @@ project2_image_classification/cifar-10-*
 18_19-dnn-tf-conv-net/*.gz
 */__pycache__
 *.gz
+
+26-word2vec/data

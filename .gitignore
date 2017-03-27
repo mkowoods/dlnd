@@ -12,3 +12,6 @@ project2_image_classification/cifar-10-*
 *.gz
 
 26-word2vec/data
+
+.floydexpt
+.floydignore

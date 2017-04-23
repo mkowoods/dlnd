@@ -1,6 +1,6 @@
 .idea
 *.zip
-Project1_bikesharing_prediction/.ipynb_checkpoints
+project1_bikesharing_prediction/.ipynb_checkpoints
 10-sentiment-analysis-tutorial-trask/sentiment_network/.ipynb_checkpoints
 */mnist/train-images-idx3-ubyte
 */.ipynb_checkpoints
@@ -17,3 +17,4 @@ project2_image_classification/cifar-10-*
 .floydignore
 /26-word2vec/checkpoints/
 /34_sentiment_rnn/checkpoints/
+/40-reinforcement/gym/

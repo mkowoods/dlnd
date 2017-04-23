@@ -1,0 +1,4 @@
+embeddings {
+  tensor_name: "decoder_embedding/dec_embed:0"
+  metadata_path: "logs/run-20170423225133/metadata.tsv"
+}

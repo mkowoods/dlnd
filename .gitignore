@@ -18,3 +18,4 @@ project2_image_classification/cifar-10-*
 /26-word2vec/checkpoints/
 /34_sentiment_rnn/checkpoints/
 /40-reinforcement/gym/
+/secret.txt

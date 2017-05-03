@@ -11759,7 +11759,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[1]:</div>
+<div class="prompt input_prompt">In&nbsp;[3]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="sd">&quot;&quot;&quot;</span>
@@ -11947,6 +11947,27 @@ les états-unis est jamais pluvieux en janvier , mais il est parfois doux en oct
 </div>
 </div>
 
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_text output_error">
+<pre>
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">NameError</span>                                 Traceback (most recent call last)
+<span class="ansi-green-fg">&lt;ipython-input-4-611d137e6332&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span><span class="ansi-blue-fg">()</span>
+<span class="ansi-green-intense-fg ansi-bold">      2</span> DON<span class="ansi-red-fg">&#39;</span>T MODIFY ANYTHING IN THIS CELL
+<span class="ansi-green-intense-fg ansi-bold">      3</span> &#34;&#34;&#34;
+<span class="ansi-green-fg">----&gt; 4</span><span class="ansi-red-fg"> </span>helper<span class="ansi-blue-fg">.</span>preprocess_and_save_data<span class="ansi-blue-fg">(</span>source_path<span class="ansi-blue-fg">,</span> target_path<span class="ansi-blue-fg">,</span> text_to_ids<span class="ansi-blue-fg">)</span>
+
+<span class="ansi-red-fg">NameError</span>: name &#39;text_to_ids&#39; is not defined</pre>
+</div>
+</div>
+
+</div>
+</div>
+
 </div>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
@@ -12022,7 +12043,13 @@ les états-unis est jamais pluvieux en janvier , mais il est parfois doux en oct
 <div class="output_area"><div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>TensorFlow Version: 1.0.0
-Default GPU Device: /gpu:0
+</pre>
+</div>
+</div>
+
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_stream output_stderr output_text">
+<pre>/Users/mwoods/miniconda2/envs/dlnd/lib/python3.6/site-packages/ipykernel/__main__.py:15: UserWarning: No GPU found. Please use a GPU to train your neural network.
 </pre>
 </div>
 </div>
@@ -12405,8 +12432,7 @@ Default GPU Device: /gpu:0
                                                                  <span class="n">num_outputs</span><span class="o">=</span><span class="n">vocab_size</span><span class="p">,</span> 
                                                                  <span class="n">activation_fn</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> 
                                                                  <span class="n">scope</span><span class="o">=</span><span class="n">decoding_scope</span><span class="p">)</span>
-
-    <span class="k">with</span> <span class="n">tf</span><span class="o">.</span><span class="n">variable_scope</span><span class="p">(</span><span class="s2">&quot;decoding&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">decoding_scope</span><span class="p">:</span>
+        
         <span class="n">train_logits</span> <span class="o">=</span> <span class="n">decoding_layer_train</span><span class="p">(</span><span class="n">encoder_state</span><span class="o">=</span><span class="n">encoder_state</span><span class="p">,</span> 
                                             <span class="n">dec_cell</span><span class="o">=</span><span class="n">dec_cell</span><span class="p">,</span> 
                                             <span class="n">dec_embed_input</span><span class="o">=</span><span class="n">dec_embed_input</span><span class="p">,</span>
@@ -12414,18 +12440,19 @@ Default GPU Device: /gpu:0
                                             <span class="n">decoding_scope</span><span class="o">=</span><span class="n">decoding_scope</span><span class="p">,</span> 
                                             <span class="n">output_fn</span> <span class="o">=</span> <span class="n">output_fn</span><span class="p">,</span>
                                             <span class="n">keep_prob</span> <span class="o">=</span> <span class="n">keep_prob</span><span class="p">)</span>
+        
 
-    <span class="k">with</span> <span class="n">tf</span><span class="o">.</span><span class="n">variable_scope</span><span class="p">(</span><span class="s2">&quot;decoding&quot;</span><span class="p">,</span> <span class="n">reuse</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> <span class="k">as</span> <span class="n">decoding_scope</span><span class="p">:</span>
-        <span class="n">infer_logits</span> <span class="o">=</span> <span class="n">decoding_layer_infer</span><span class="p">(</span><span class="n">encoder_state</span><span class="o">=</span><span class="n">encoder_state</span><span class="p">,</span>
-                                            <span class="n">dec_cell</span> <span class="o">=</span> <span class="n">dec_cell</span><span class="p">,</span>
-                                            <span class="n">dec_embeddings</span> <span class="o">=</span> <span class="n">dec_embeddings</span><span class="p">,</span>
-                                            <span class="n">start_of_sequence_id</span> <span class="o">=</span> <span class="n">target_vocab_to_int</span><span class="p">[</span><span class="s1">&#39;&lt;GO&gt;&#39;</span><span class="p">],</span>
-                                            <span class="n">end_of_sequence_id</span> <span class="o">=</span> <span class="n">target_vocab_to_int</span><span class="p">[</span><span class="s1">&#39;&lt;EOS&gt;&#39;</span><span class="p">],</span>
-                                            <span class="n">maximum_length</span> <span class="o">=</span> <span class="n">sequence_length</span><span class="p">,</span> <span class="c1">#avg length is 13, hopefully this is a large enough UB</span>
-                                            <span class="n">vocab_size</span> <span class="o">=</span> <span class="n">vocab_size</span><span class="p">,</span>
-                                            <span class="n">decoding_scope</span> <span class="o">=</span> <span class="n">decoding_scope</span><span class="p">,</span>
-                                            <span class="n">output_fn</span> <span class="o">=</span> <span class="n">output_fn</span><span class="p">,</span>
-                                            <span class="n">keep_prob</span> <span class="o">=</span> <span class="n">keep_prob</span><span class="p">)</span>
+    <span class="n">decoding_scope</span><span class="o">.</span><span class="n">reuse_variables</span><span class="p">()</span>
+    <span class="n">infer_logits</span> <span class="o">=</span> <span class="n">decoding_layer_infer</span><span class="p">(</span><span class="n">encoder_state</span><span class="o">=</span><span class="n">encoder_state</span><span class="p">,</span>
+                                        <span class="n">dec_cell</span> <span class="o">=</span> <span class="n">dec_cell</span><span class="p">,</span>
+                                        <span class="n">dec_embeddings</span> <span class="o">=</span> <span class="n">dec_embeddings</span><span class="p">,</span>
+                                        <span class="n">start_of_sequence_id</span> <span class="o">=</span> <span class="n">target_vocab_to_int</span><span class="p">[</span><span class="s1">&#39;&lt;GO&gt;&#39;</span><span class="p">],</span>
+                                        <span class="n">end_of_sequence_id</span> <span class="o">=</span> <span class="n">target_vocab_to_int</span><span class="p">[</span><span class="s1">&#39;&lt;EOS&gt;&#39;</span><span class="p">],</span>
+                                        <span class="n">maximum_length</span> <span class="o">=</span> <span class="n">sequence_length</span><span class="p">,</span> <span class="c1">#avg length is 13, hopefully this is a large enough UB</span>
+                                        <span class="n">vocab_size</span> <span class="o">=</span> <span class="n">vocab_size</span><span class="p">,</span>
+                                        <span class="n">decoding_scope</span> <span class="o">=</span> <span class="n">decoding_scope</span><span class="p">,</span>
+                                        <span class="n">output_fn</span> <span class="o">=</span> <span class="n">output_fn</span><span class="p">,</span>
+                                        <span class="n">keep_prob</span> <span class="o">=</span> <span class="n">keep_prob</span><span class="p">)</span>
     
     <span class="k">return</span> <span class="n">train_logits</span><span class="p">,</span> <span class="n">infer_logits</span>
 

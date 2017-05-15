@@ -19,3 +19,4 @@ project2_image_classification/cifar-10-*
 /34_sentiment_rnn/checkpoints/
 /40-reinforcement/gym/
 /secret.txt
+/42-gan_mnist/logs/
